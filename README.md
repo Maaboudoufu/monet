@@ -4,7 +4,7 @@ Monet's website. Pom Poodle mix, Yokohama.
 
 - Rust 1.100, std only — no crates
 - Serves `src/html.rs` (single HTML page) + photos from `static/img/`
-- Built with orcarouter/Qwen3.8-27B-Uncensored:Q4_K_S
+- Built with orcarouter/Qwen3.8-27B-Uncensored:Q4_K_S on my RTX 3080s
 
 ## Run
 
