@@ -1,0 +1,11 @@
+[package]
+name = "pompom"
+version = "1.0.0"
+edition = "2021"
+description = "Pom the Pom Poodle - super cute dog website from Yokohama"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
