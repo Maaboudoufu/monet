@@ -1,0 +1,13 @@
+services:
+  monet:
+    image: ghcr.io/maaboudoufu/monet:main
+    ports:
+      - "5170:8080"
+    environment:
+      PORT: 8080
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "true"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

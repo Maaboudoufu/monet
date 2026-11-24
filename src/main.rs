@@ -1,4 +1,4 @@
-//! Mochi's website server.
+//! Monet's website server.
 //!
 //! Super-optimized by construction:
 //! - std only, zero runtime dependencies
@@ -31,6 +31,9 @@ fn asset_dir() -> PathBuf {
     // If running from the project root directly (cargo run), use ./static/img
     if base.join("static/img").is_dir() {
         base.join("static/img")
+    } else if std::path::Path::new("/usr/share/pompom/img").is_dir() {
+        // Docker image layout: binary in /usr/local/bin, photos in /usr/share/pompom/img
+        PathBuf::from("/usr/share/pompom/img")
     } else {
         // fallback: two levels up (target/release -> .. -> .. -> static/img)
         base.join("../..").join("static/img")
@@ -44,7 +47,7 @@ fn main() {
     let assets = asset_dir();
 
     let listener = TcpListener::bind(&addr).expect("bind failed. Is the port busy?");
-    println!("Mochi's site live at http://{} (ctrl-c to stop)", addr);
+    println!("Monet's site live at http://{} (ctrl-c to stop)", addr);
     println!("asset dir: {:?}", assets);
 
     for stream in listener.incoming() {

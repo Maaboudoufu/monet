@@ -24,3 +24,25 @@ cargo build --release
 
 Images live in `static/img/`. The server reads them from disk at
 `<exe>/../../static/img`, so photo swaps don't need a rebuild.
+
+## Docker
+
+Image: `ghcr.io/maaboudoufu/monet:main` (pushed by CI on every push to `main`).
+
+```sh
+docker pull ghcr.io/maaboudoufu/monet:main
+docker run -p 5170:8080 ghcr.io/maaboudoufu/monet:main
+```
+
+Or compose:
+
+```sh
+docker compose up -d
+```
+
+Or build locally:
+
+```sh
+docker build -t monet .
+docker run -p 5170:8080 monet
+```
